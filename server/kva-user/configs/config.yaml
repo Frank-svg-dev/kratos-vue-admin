@@ -1,0 +1,36 @@
+project:
+  name: kva-user
+  mode: dev
+  version: v1
+server:
+  http:
+    addr: 0.0.0.0:8000
+    timeout: 1s
+  grpc:
+    addr: 0.0.0.0:9000
+    timeout: 1s
+data:
+  database:
+    driver: mysql
+    source: "ssbdb:jszh123@tcp(132.224.247.216:3306)/ssbdb?charset=utf8&parseTime=True&loc=Local"
+  redis:
+    addr: 127.0.0.1:6379
+    read_timeout: 0.2s
+    write_timeout: 0.2s
+  nacos:
+    ip: 192.168.173.81
+    port: 8848
+    dataId: kva-user
+    group:  kva-user
+    namespaceId: 39f3973b-b6df-4d93-a776-870bd2127d37
+    timeoutMs: 10000
+    logDir: ./
+  project:
+    name: kva-user
+    mode: dev
+    version: v1
+  jwt:
+    SigningKey: af3fd932-dadd-4e56-9545-47975cc42e73
+    ExpiresTime: 604800
+    BufferTime: 86400
+    Issuer: pp

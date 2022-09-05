@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package kva_user;
+
+option go_package = "kva-user/api/kva-user;kva_user";
+option java_multiple_files = true;
+option java_package = "api.kva_user";
+
+import "third_party/google/api/annotations.proto";
+
+
+message UserLoginReq {
+		string username = 1;
+		string password = 2;
+}
+
+message UserLoginRes {
+		string token = 1;
+		string expiresAt = 2;
+}
+
+
+service Auth {
+	rpc CreateAuth (UserLoginReq) returns (UserLoginRes){
+		option(google.api.http)={
+			post: "/login",
+			body: "*"
+		};
+	};
+}
